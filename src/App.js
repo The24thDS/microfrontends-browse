@@ -1,17 +1,20 @@
 import { NavLink, Routes, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import CustomBrowserRouter from "./CustomBrowserRouter";
+import React from "react";
 
-const App = ({ history = createBrowserHistory(), restaurantsPath = "" }) => {
+const App = ({
+  history = createBrowserHistory(),
+  restaurantsPath = "",
+  basename = "",
+}) => {
   return (
-    <CustomBrowserRouter basename="browse" history={history}>
-      <p>
-        <nav>
-          Browse Page Nav:{" "}
-          <NavLink to={`/../${restaurantsPath}`}>Restaurants</NavLink>{" "}
-          <NavLink to="/../">Back to the main page</NavLink>
-        </nav>
-      </p>
+    <CustomBrowserRouter basename={basename} history={history}>
+      <nav>
+        Browse Page Nav:{" "}
+        <NavLink to={`/../${restaurantsPath}`}>Restaurants</NavLink>{" "}
+        <NavLink to="/../">Back to the main page</NavLink>
+      </nav>
       <div>
         <Routes>
           <Route

@@ -1,9 +1,19 @@
 import ReactDOM from "react-dom";
 import App from "./App";
 
-window.render_browse = (elementId, history, host, { restaurantsPath }) => {
+window.render_browse = (
+  elementId,
+  history,
+  host,
+  { restaurantsPath, basename }
+) => {
   ReactDOM.render(
-    <App history={history} restaurantsPath={restaurantsPath} />,
+    <App
+      history={history}
+      restaurantsPath={restaurantsPath}
+      basename={basename}
+      key="browse-app"
+    />,
     document.getElementById(elementId)
   );
 };
