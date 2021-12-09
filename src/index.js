@@ -1,5 +1,17 @@
 import ReactDOM from "react-dom";
-import { App } from "./App";
+import App from "./App";
 
-const app = document.getElementById("app");
-ReactDOM.render(<App />, app);
+window.render_browse = (elementId, history, host, { restaurantsPath }) => {
+  ReactDOM.render(
+    <App history={history} restaurantsPath={restaurantsPath} />,
+    document.getElementById(elementId)
+  );
+};
+
+window.unmount_browse = (elementId) => {
+  ReactDOM.unmountComponentAtNode(document.getElementById(elementId));
+};
+
+if (document.getElementById("browse-container") === null) {
+  ReactDOM.render(<App />, document.getElementById("app"));
+}
